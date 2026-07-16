@@ -1,4 +1,5 @@
 schema: spec-driven
+
 # **IMPORTANT** Project context - Replace with your actual project spec below
 # -----------------------------------------------------------------------------
 # context: |
@@ -7,11 +8,9 @@ schema: spec-driven
 #  Testing: Vitest + React Testing Library
 #  We value backwards compatibility for all public APIs
 
-# Per-artifact rules (optional)
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+rules:
+  proposal:
+    - Use grill-with-docs skill before creating proposal.md
+    - Interrogate the plan one question at a time
+    - Walk down each branch of the design tree until a shared understanding is reached
+
