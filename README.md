@@ -4,24 +4,24 @@
 
 - **[OpenCode](https://github.com/anomalyco/opencode)** - Model-agnostic agent orchestration.
 - **[OpenSpec](https://github.com/Fission-AI/openspec)** - A spec-driven development framework with an opinionated workflow.
+- **MCP**
+  - [CodeGraph](https://github.com/colbymchenry/codegraph) - Semantic Code Intelligence with optimized token usage.
 - **[Skills](https://github.com/mattpocock/skills)**
-  - Real-world productivity skills powered by `mattpocock/skills` for `OpenSpec`.
+  - [`mattpocock/skills`](https://github.com/mattpocock/skills) - real world productivity skills for `OpenSpec`.
 
 
 
 ### 1. Installation
 
-#### 1.1 Instruct OpenCode to fetch and follow the setup instructions:
+*Paste* the following instructions in `OpenCode`.
 
 ```text
 Fetch and follow instructions from https://raw.githubusercontent.com/jimzhan/speckit/refs/heads/main/INSTALL.md
 ```
 
-#### 1.2 Ensure at least one model provider is activated for `OpenCode`.
+**NOTE** Ensure at least one model provider is activated for `OpenCode`.
 
 > 💡 **Tip:** It is recommended to start your test run with the free model provided by `OpenCode` (enabled by default if environment variable  `OPENCODE_API_KEY` is configured).
-
-
 
 
 
@@ -60,7 +60,6 @@ flowchart LR
 - `/opsx-update` - to revise a change's planning artifacts and keep them coherent.
 - `/opsx-sync` - to merge delta specs into main specs:
   - `openspec/<change-id>/**/spec.md` => `openspec/specs/<domain>/spec.md`
-
 
 
 
