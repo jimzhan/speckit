@@ -8,7 +8,7 @@ Before proceeding, verify or instruct the user to ensure the following are insta
 - **Node.js**: `v22+` LTS (Required for cross-platform, non-destructive merge logic and script execution).
 - **OpenCode CLI**: Latest version (Installed globally).
 - **OpenSpec**: Latest version (Install globally via `npm`).
-- **rtk**: Latest version (reduces LLM token consumption).
+- **CodeGraph**: `v1.0+` Latest version (Install globally via `npm`, Semantic Code Intelligence with less tokens).
 
 ## 2. Goal
 Intelligently inject the SpecKit spec-driven governance layer (`OpenSpec` + `OpenCode` configurations) into the user's current working directory while preserving 100% of their existing project conventions, code, and documentation.
@@ -60,19 +60,16 @@ Safely copy the following template files and directories into the target project
 After installation, run the safest, read-only checks available for the target project to ensure no breakage occurred:
 
 ```bash
-# 1. Enable `rtk` for `OpenCode`
-rtk init -g --opencode
+# 1. Update skills with `skills-lock.json`
+npx skills@latest update --project
 
-# 2. Update skills with `skills-lock.json`
-npx skills@latest update
-
-# 3. Verify only intended files were touched
+# 2. Verify only intended files were touched
 git status --short
 
-# 4. Validate OpenSpec schema (if the CLI is available in the environment)
+# 3. Validate OpenSpec schema (if the CLI is available in the environment)
 openspec schema validate spec-driven
 
-# 5. (Optional) Verify OpenCode providers
+# 4. (Optional) Verify OpenCode providers
 opencode providers list
 ```
 

@@ -12,10 +12,6 @@
       "enabled": true
     }
   },
-  "plugin": [
-    "openrtk",
-    "superpowers@git+https://github.com/obra/superpowers.git"
-  ],
   "provider": {
     "deepseek-v4-flash-free": {
       "npm": "@ai-sdk/openai-compatible",
