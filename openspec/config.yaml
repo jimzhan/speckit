@@ -10,7 +10,5 @@ schema: spec-driven
 
 rules:
   proposal:
-    - Use grill-with-docs skill before creating proposal.md
-    - Interrogate the plan one question at a time
-    - Walk down each branch of the design tree until a shared understanding is reached
+    - Must use grill-with-docs skill before creating proposal.md
 
