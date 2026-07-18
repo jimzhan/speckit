@@ -61,7 +61,7 @@ flowchart LR
 
 
 
+> [!TIP]
+> Not included, but highly recommended:
+> - [`rtk`](https://github.com/rtk-ai/rtk) - High-performance CLI proxy that reduces LLM token consumption by 60-90% (`rtk init -g --opencode `).
 
-### Recommended Setup
-
-- [`rtk`](https://github.com/rtk-ai/rtk) - High-performance CLI proxy that reduces LLM token consumption by 60-90% (`rtk init -g --opencode `).
