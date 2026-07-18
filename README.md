@@ -54,14 +54,14 @@ flowchart LR
 
 #### 2.1 Use
 
-- `/opsx-explore` - to think through ideas before committing to a change (`/opsx-new` comes next).
-- `/opsx-verify` - to validate implementation matches artifacts.
+- `/opsx-explore` - to think through your ideas before committing to a change (`/opsx-new` comes next).
+- `/opsx-verify` - to validate implementation againsts artifacts (`design.md` and `tasks.md`).
 - `/opsx-update` - to revise a change's planning artifacts and keep them coherent.
 - `/opsx-sync` - to merge delta specs into main specs:
   - `openspec/<change-id>/**/spec.md` => `openspec/specs/<domain>/spec.md`
 
 > [!TIP]
-> `/opsx-propose` generates full planning artifacts in a single pass without stakeholder interviews. To enforce rigorous requirement alignment and shared domain modeling, ***SpecKit*** intentionally disables this one-shot flow in favor of the interview-driven `grill-with-docs` skill from [mattpocock/skills](https://link.wtturl.cn/?target=https%3A%2F%2Fgithub.com%2Fmattpocock%2Fskills&scene=im&aid=582478&lang=zh).
+> `opsx-new` ***over***`/opsx-propose` - `opsx-propose` generates full planning artifacts in a single pass without stakeholder interviews. To enforce rigorous requirement alignment and shared domain modeling (via `grill-with-docs` from [mattpocock/skills](https://github.com/mattpocock/skills)), this unguided one-shot workflow is intentionally disabled by default. 
 
 
 
@@ -124,8 +124,3 @@ The default model is `opencode/deepseek-v4-flash-free` provided by `OpenCode`. T
 > Not included, but highly recommended:
 >
 > - [`rtk`](https://github.com/rtk-ai/rtk) - High-performance CLI proxy that reduces LLM token consumption by 60-90% (`rtk init -g --opencode `).
-
-
-
-### 
-
