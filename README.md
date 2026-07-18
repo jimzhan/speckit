@@ -39,7 +39,7 @@ flowchart LR
     Continue["Review <b><i>proposal.md</i></b> then <b>/opsx:continue</b>"]
     Apply["<b>/opsx:apply</b><br/>(Implement tasks from the change)"]
     Verify["<b>/opsx:verify</b><br/>(Validate implementation)"]
-    Archive["<b>/opsx:archive</b><br/>(Archive finish change)"]
+    Archive["<b>/opsx:archive</b><br/>(Archive finished change)"]
 
     New --> Grill
     Grill --> Propose
