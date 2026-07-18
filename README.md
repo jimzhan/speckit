@@ -18,8 +18,8 @@
 ```text
 Fetch and follow instructions from https://raw.githubusercontent.com/jimzhan/speckit/refs/heads/main/INSTALL.md
 ```
-
-**NOTE** Ensure at least one model provider is activated for `OpenCode`. 💡 ***Tip:*** It is recommended to start your test run with the free model provided by `OpenCode` (enabled by default if environment variable  `OPENCODE_API_KEY` is configured).
+> [!TIP]
+> **NOTE** Ensure at least one model provider is activated for `OpenCode`. It is recommended to start your test run with the free model provided by `OpenCode` (enabled by default if environment variable  `OPENCODE_API_KEY` is configured).
 
 
 
