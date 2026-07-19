@@ -80,7 +80,7 @@ flowchart LR
 
 #### 3.1 oh-my-opencode-slim
 
-The default preset is `opencode-zen-free`  with free models provided by `OpenCode`. To maximize the capabilities of your subscribed AI models, create a custom preset in `.opencode/oh-my-opencode-slim.jsonc` to specify the model, temperature, variants, skills, and MCPs for each agent. Example:
+The default preset is `opencode-zen-free`  with free models provided by `OpenCode`. To maximize the capabilities of your subscribed AI models, create a custom preset in `.opencode/oh-my-opencode-slim.jsonc` to specify the model, temperature, variants, skills, and MCPs for each agent. ***Example***
 
 ```json
 {
@@ -107,7 +107,34 @@ The default preset is `opencode-zen-free`  with free models provided by `OpenCod
 
 
 
-#### 3.2 Extras
+#### 3.2 Project Spec
+
+Inject your prject context to `openspec/config.yaml`. ***Example***
+
+```yaml
+# openspec/config.yaml
+schema: speckit
+
+context: |
+  Tech Stack:
+    Frontend: React 18, TypeScript, Vite, Tailwind CSS
+    Backend: Node.js, Nest.js, PostgreSQL
+    Container: Podman
+    Testing: Vitest, React Testing Library, Playwright
+    API Style: RESTful, JSON responses, standard error handling wrappers
+  
+  Architecture & Conventions:
+    - Modular architecture separating controllers, services, and repositories.
+    - All new API endpoints must have complete TypeScript types, and follow Richardson Maturity Model Level 2.
+    - Follow strict cross-platform compatibility and responsive design rules.
+    - Maintain backwards compatibility for all public-facing APIs.
+```
+
+
+
+
+
+#### 3.3 Extras
 
 > [!TIP]
 > Not included, but highly recommended:

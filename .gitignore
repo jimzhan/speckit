@@ -1,7 +1,11 @@
 # SpecKit
 .agents/skills
 .claude/
+.worktree/
+.worktrees/
 
+# Mac
+.DS_Store
 
 # Logs
 logs
