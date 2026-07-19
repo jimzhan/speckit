@@ -117,15 +117,15 @@ schema: speckit
 
 context: |
   Tech Stack:
-    Frontend: React 18, TypeScript, Vite, Tailwind CSS
+    Frontend: React 19, TypeScript, Vite, Tailwind CSS
     Backend: Node.js, Nest.js, PostgreSQL
     Container: Podman
-    Testing: Vitest, React Testing Library, Playwright
-    API Style: RESTful, JSON responses, standard error handling wrappers
+    Testing: Vitest, Playwright
+    API Style: RESTful, OpenAPI Spec, JSON responses, standard error handling wrappers
   
   Architecture & Conventions:
     - Modular architecture separating controllers, services, and repositories.
-    - All new API endpoints must have complete TypeScript types, and follow Richardson Maturity Model Level 2.
+    - All new API endpoints must have complete TypeScript types, and satisfy Richardson Maturity Model Level 2.
     - Follow strict cross-platform compatibility and responsive design rules.
     - Maintain backwards compatibility for all public-facing APIs.
 ```
