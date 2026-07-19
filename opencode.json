@@ -7,7 +7,6 @@
     "explore": { "disable": true },
     "general": { "disable": true }
   },
-  "model": "opencode/deepseek-v4-flash-free",
   "mcp": {
     "codegraph": {
       "enabled": true,

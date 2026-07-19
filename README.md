@@ -1,14 +1,21 @@
 # SpecKit
 
-**SpecKit** is a lightweight, opinionated, and AI-driven application development boilerplate. It provides out-of-the-box (OOTB) support for both Greenfield (new) and Brownfield (existing) projects with set of best practices. **What's included?**
+**SpecKit** is a lightweight and opinionated AI-driven application development boilerplate. It provides out-of-the-box (OOTB) support for both Greenfield (new) and Brownfield (existing) projects with a set of best practices. **What's included?**
 
 - **[OpenCode](https://github.com/anomalyco/opencode)** - Model-agnostic agent orchestration.
 
-  - [Oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim) - Multi-Agent System (aka MAS) for OpenCode, with specialized agent team built-in to scan codebases, fetch docs, audit architecture, build UI, and run scoped implementation tasks via a single orchestrator.
+  - [Oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim) - A Multi-Agent System (MAS) for OpenCode, featuring a specialized agent team built-in to scan codebases, fetch docs, audit architecture, build UI, and run scoped implementation tasks via a single orchestrator. Meet your team below (***Ref*** [Meet the Pantheon](https://github.com/alvinunreal/oh-my-opencode-slim#meet-the-pantheon)):
+    - ***Orchestrator*** - Plans, schedules background specialists, reconciles results, and verifies outcomes.
+    - ***Explorer*** - Handles broad scouting work with speed.
+    - ***Oracle*** - Works on architecture, hard debugging, trade-offs, and code review.    
+    - ***Council*** - Sends your question to multiple models in parallel, gathers their competing judgments, and distills the strongest ideas into a single verdict.
+    - ***Librarian*** - Handles research and documentation lookups, emphasizing speed and efficiency.
+    - ***Designer*** - Focuses on UI/UX judgment, frontend implementation, and visual polish.
+    - ***Fixer*** - Works on execution tasks and straightforward code changes based on a concrete plan or bounded instructions from ***Orchestrator***.
 
 - **[OpenSpec](https://github.com/Fission-AI/openspec)** - A spec-driven development framework with **an opinionated workflow** - `speckit`.
 
-  
+
 
 ### 1. Installation
 
@@ -18,11 +25,13 @@
 Fetch and follow instructions from https://raw.githubusercontent.com/jimzhan/speckit/refs/heads/main/INSTALL.md
 ```
 > [!TIP]
-> Obtain your `OpenCode` API Key and [configure it](https://opencode.ai/docs#configure) (all configured API keys are stored in `$HOME/.local/share/opencode/auth.json`). It is recommended to start your test run with the free model provided by `OpenCode`.
+> Obtain your `OpenCode` API key and [configure it](https://opencode.ai/docs#configure). Configured keys are stored in `$HOME/.local/share/opencode/auth.json`. It's recommended to start with the free model for your initial test runs.
 
 
 
-### 2. End-to-End SpecKit Workflow
+
+
+### 2. End-to-End Workflow
 
 ```mermaid
 ---
@@ -37,7 +46,7 @@ flowchart LR
     Review{"<b><i>design.md</i></b> & <b><i>tasks.md</i></b> LGTM?"}
     FF["<b>/opsx:ff</b><br/>(Write <b><i>design.md</i></b> & <b><i>tasks.md</i></b>)"]
     Continue["Review <b><i>proposal.md</i></b> then <b>/opsx:continue</b>"]
-    Apply["<b>/opsx:apply</b><br/>(Implement tasks from the change)"]
+    Apply["<b>/opsx:apply</b><br/>(Implement <b><i>design.md</i></b>)"]
     Verify["<b>/opsx:verify</b><br/>(Validate implementation)"]
     Archive["<b>/opsx:archive</b><br/>(Archive finished change)"]
 
@@ -57,7 +66,7 @@ flowchart LR
 - `/opsx-explore` - to think through your ideas before committing to a change (`/opsx-new` comes next).
 - `/opsx-verify` - to validate implementation againsts artifacts (`design.md` and `tasks.md`).
 - `/opsx-update` - to revise a change's planning artifacts and keep them coherent.
-- `/opsx-sync` - to merge delta specs into main specs:
+- `/opsx-sync` - to merge delta specs into main project specs:
   - `openspec/<change-id>/**/spec.md` => `openspec/specs/<domain>/spec.md`
 
 > [!TIP]
@@ -71,54 +80,34 @@ flowchart LR
 
 #### 3.1 oh-my-opencode-slim
 
-The default model is `opencode/deepseek-v4-flash-free` provided by `OpenCode`. To maximize the capabilities of your subscribed AI models, create a custom `oh-my-opencode-slim.json` to specify the model, variants, skills, and MCPs for each agent. Example:
+The default preset is `opencode-zen-free`  with free models provided by `OpenCode`. To maximize the capabilities of your subscribed AI models, create a custom preset in `.opencode/oh-my-opencode-slim.jsonc` to specify the model, temperature, variants, skills, and MCPs for each agent. Example:
 
 ```json
 {
-  "preset": "codex",
+  "preset": "gpt-5.6-codex",
   "presets": {
-    "codex": {
-      "orchestrator": {
-        "model": "openai/o3",
-        "skills": ["*"],
-        "mcps": ["*"]
-      },
-      "oracle": {
-        "model": "openai/o3",
-        "variant": "high",
-        "skills": ["simplify"],
-        "mcps": []
-      },
-      "librarian": {
-        "model": "openai/o4-mini",
-        "variant": "low",
-        "skills": [],
-        "mcps": ["websearch", "context7", "grep_app"]
-      },
-      "explorer": {
-        "model": "openai/o4-mini",
-        "variant": "low",
-        "skills": [],
-        "mcps": []
-      },
-      "designer": {
-        "model": "openai/o4-mini",
-        "variant": "medium",
-        "skills": ["agent-browser"],
-        "mcps": []
-      },
-      "fixer": {
-        "model": "openai/o4-mini",
-        "variant": "low",
-        "skills": [],
-        "mcps": []
-      }
+    "gpt-5.6-codex": {
+      "orchestrator": { "model": "openai/gpt-5.6-terra", "temperature": 0.4, "skills": ["*"], "mcps": ["*", "!context7"] },
+      "oracle":       { "model": "openai/gpt-5.6-sol", "temperature": 0.4, "variant": "max", "skills": ["simplify"], "mcps": [] },
+      "explorer":     { "model": "openai/gpt-5.6-luna", "temperature": 0.2, "skills": [], "mcps": [] },
+      "librarian":    { "model": "openai/gpt-5.6-luna", "temperature": 0.2, "skills": [], "mcps": ["websearch", "context7", "gh_grep"] },
+      "designer":     { "model": "openai/gpt-5.6-terra", "temperature": 0.3, "variant": "medium", "skills": [], "mcps": [] },
+      "fixer":        { "model": "openai/gpt-5.6-terra", "temperature": 0.2, "variant": "high", "skills": [], "mcps": [] },
+      "observer":     { "model": "openai/gpt-5.6-luna", "temperature": 0.2, "variant": "low", "skills": [], "mcps": [] }
     }
   }
 }
 ```
 
+> [!TIP]
+>
+> `temperature` - standard LLM sampling parameter, controls ***how*** the agent says things (rigid vs. flexible).
+>
+> `variant` - specific to `opencode`, controls ***how hard*** (with more tokens) the agent thinks (shallow vs. deep).
 
+
+
+#### 3.2 Extras
 
 > [!TIP]
 > Not included, but highly recommended:
