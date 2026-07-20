@@ -12,13 +12,14 @@
 
 ### 1. Installation
 
-*Paste* the following instructions in `OpenCode`.
+- [Install](https://opencode.ai/docs#install) `OpenCode` and [configure](https://opencode.ai/docs/#configure) your LLM provider(s).
+- *Paste* the following instructions in `OpenCode`.
 
 ```text
 Fetch and follow instructions from https://raw.githubusercontent.com/jimzhan/speckit/refs/heads/main/INSTALL.md
 ```
 > [!TIP]
-> Obtain your `OpenCode` API key and [configure it](https://opencode.ai/docs#configure). Configured keys are stored in `$HOME/.local/share/opencode/auth.json`. It's recommended to start with the free model for your initial test runs.
+> Configured keys are stored in `$HOME/.local/share/opencode/auth.json`. It's recommended to start with the free model for your initial test runs.
 
 
 
